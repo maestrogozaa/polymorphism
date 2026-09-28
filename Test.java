@@ -1,18 +1,44 @@
-public static void main(String[] args) {
-    Shape[] v = new Shape[4];
+import java.util.Arrays;
 
-    v[0] = new Rectangle(5, 3);
-    v[1] = new Circle(5);
-    v[2] = new Square(5);
-    v[3] = new Circle(120);
+public class Test {
 
-    double res = sum(v);
+    public static void main(String[] args) {
 
-    System.out.println("sum: " + res);
+        Shape[] v = new Shape[4];
 
-    print(v);
+        v[0] = new Rectangle(5, 3);
+        v[1] = new Circle(5);
+        v[2] = new Square(5);
+        v[3] = new Circle(120);
 
-    sort(v);
+        double res = sum(v);
 
-    print(v);
+        System.out.println("sum: " + res);
+
+        print(v);
+
+        sort(v);
+
+        print(v);
+    }
+
+    public static double sum(Shape[] v) {
+        double total = 0;
+
+        for (Shape s : v) {
+            total += s.area();
+        }
+
+        return total;
+    }
+
+    public static void print(Shape[] v) {
+        for (Shape s : v) {
+            System.out.println(s.area());
+        }
+    }
+
+    public static void sort(Shape[] v) {
+        Arrays.sort(v);
+    }
 }
